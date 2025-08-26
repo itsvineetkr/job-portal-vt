@@ -1,0 +1,8 @@
+# Use official Node.js image for backend
+FROM node:18-alpine
+WORKDIR /app
+COPY backend/package.json backend/package-lock.json ./
+RUN npm install
+COPY backend/. .
+EXPOSE 4444
+CMD ["node", "server.js"]
